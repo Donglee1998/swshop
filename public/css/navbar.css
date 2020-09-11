@@ -1,0 +1,261 @@
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+.navbar-brand {
+    font-family: 'golden';
+    font-size: 2rem;
+    padding: 0.1em 2em 0em 4.5em;
+    border-bottom: 1px solid #f99e99;
+    cursor: pointer;
+    margin-right:0 ;
+}
+.active{
+    color: #f99e99 !important;
+}
+.navbar-brand:hover{
+    color: #f99e99;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.menu>ul>li a {
+    text-decoration: none;
+}
+
+ul a:hover {
+    color: #f99e99;
+}
+
+ul b:hover {
+    color: #f99e99;
+}
+
+.menu {
+    width: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 10px;
+}
+
+.menu-container {
+    margin: 0 auto;
+}
+
+.menu img {
+    max-width: 100%;
+}
+
+.menu-mobile {
+    display: none;
+    padding: 10px;
+}
+
+.menu-mobile:after {
+    content: "\f394";
+    font-family: "Ionicons";
+    color: #f99e99;
+
+    font-size: 2rem;
+    padding: 0;
+    float: left;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-25%);
+    transform: translateY(-25%);
+}
+
+
+.menu-dropdown-icon:before {
+    content: "\f2c7";
+    font-family: "Ionicons";
+    display: none;
+    cursor: pointer;
+    float: right;
+    padding: 1.5em;
+    background: #fff;
+    color: #333;
+}
+
+.menu>ul {
+    margin: 0 auto;
+    width: 80%;
+    list-style: none;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+    clear: right;
+}
+
+.menu>ul:before, .menu>ul:after {
+    content: "";
+    display: table;
+}
+
+.menu>ul:after {
+    clear: both;
+}
+
+.menu>ul>li {
+    float: left;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.outside {
+    padding: 0.5em 3em 0.5em 3em;
+    display: block;
+    cursor: pointer;
+}
+
+.menu>ul>li>ul {
+    display: none;
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #000;
+}
+
+.menu>ul>li>ul:before, .menu>ul>li>ul:after {
+    content: "";
+    display: table;
+}
+
+.menu>ul>li>ul:after {
+    clear: both;
+}
+
+.menu>ul>li>ul>li {
+    margin: 0;
+    padding: 1em;
+    list-style: none;
+    width: 20%;
+    background: none;
+    float: left;
+}
+
+.subhead {
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+.menu>ul>li>ul>li a:hover {
+    color: #f99e99;
+}
+
+.menu>ul>li>ul>li>ul {
+    display: block;
+    padding: 0;
+    margin: 10px 0 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.menu>ul>li>ul>li>ul:before, .menu>ul>li>ul>li>ul:after {
+    content: "";
+    display: table;
+}
+
+.menu>ul>li>ul>li>ul:after {
+    clear: both;
+}
+
+.menu>ul>li>ul>li>ul>li {
+    float: left;
+    width: 100%;
+    padding: 4px 0;
+    margin: 0;
+    font-size: 1em;
+}
+
+.menu>ul>li>ul>li>ul>li a {
+    border: 0;
+    font-size: 16px;
+}
+
+.menu>ul>li>ul.normal-sub {
+    width: 300px;
+    left: auto;
+    padding: 10px 20px;
+}
+
+.menu>ul>li>ul.normal-sub>li {
+    width: 100%;
+}
+
+.menu>ul>li>ul.normal-sub>li a {
+    border: 0;
+    padding: 1em 0;
+}
+
+@media (max-width: 950px) {
+    .navbar-brand {
+        margin-right: 0;
+        padding: 0;
+    }
+    .outside {
+        padding: 0.1em 1em 0.5em 1em;
+    }
+    .menu-container {
+        width: 100%;
+    }
+    .menu-container .menu {
+        display: inline-block;
+    }
+    .menu-mobile {
+        display: block;
+        float: right;
+        padding: 5px 15px 0;
+    }
+    .menu-dropdown-icon:before {
+        display: block;
+        padding: 0.5em 1em 0em 0.5em;
+    }
+    .menu>ul {
+        display: none !important;
+        width: 100%;
+    }
+    .menu>ul>li {
+        width: 100%;
+        float: none;
+        display: block;
+    }
+    .menu>ul>li>ul {
+        position: relative;
+        padding: 0 2em;
+    }
+    .menu>ul>li>ul.normal-sub {
+        width: 100%;
+    }
+    .menu>ul>li>ul>li {
+        float: none;
+        width: 100%;
+        margin-top: 10px;
+        padding: 0.5em;
+        list-style: none;
+    }
+    .menu>ul>li>ul>li:first-child {
+        margin: 0;
+    }
+    .menu>ul>li>ul>li>ul {
+        position: relative;
+    }
+    .menu>ul>li>ul>li>ul>li {
+        float: none;
+    }
+    .menu .show-on-mobile {
+        display: block !important;
+    }
+}

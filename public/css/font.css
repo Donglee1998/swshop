@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'golden';
+    src: url('../font/goldenhillsdemo-webfont.woff2') format('woff2'),
+         url('../font/goldenhillsdemo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'greatvibes';
+    src: url('../font/greatvibes-regular-webfont.woff2') format('woff2'),
+         url('../font/greatvibes-regular-webfont.woff') format('woff');
+         font-weight: normal;
+         font-style: normal;
+}
+@font-face{
+    font-family: 'lato';
+    src: url('../font/lato-regular_2-webfont.woff2') format('woff2'),
+         url('../font/lato-regular_2-webfont.woff') format('woff');
+         font-weight: normal;
+         font-style: normal;
+}

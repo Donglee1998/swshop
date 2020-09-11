@@ -1,0 +1,41 @@
+.carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+h3{
+  color: #525252;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+p{
+  font-size: smaller;
+  color: #949494;
+}
+h1{
+  font-weight: bolder;
+}
+.authorname{
+  font-weight: bold;
+}
+.avatar{
+  border-radius: 100px;
+}
+a:hover{
+text-decoration: none;
+}
+.bloghead-title{
+  font-size: 50px;
+  text-shadow: 3px 3px #000000;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.bloghead-seemore{
+  font-size:20px;
+  color:white;
+}

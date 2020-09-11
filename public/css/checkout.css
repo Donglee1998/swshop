@@ -1,0 +1,15 @@
+.btn{ 
+    background:#f99e99;
+    color:white;
+}
+.badge-pill{
+    background:#f99e99;
+    color: white;
+}
+.custom-control-input{
+    background:#f99e99;
+}
+.btn:hover{
+    background: rgb(255, 114, 114);
+    color: rgb(255, 255, 255);
+}

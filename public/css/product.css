@@ -1,0 +1,44 @@
+
+.card{
+    margin-bottom: 10px;
+}
+h4{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.price{
+font-weight: bolder;
+
+}
+small{
+    text-decoration: line-through;
+}
+.see-more:hover{
+    color:#f99e99;
+    text-decoration: none;
+}
+.see-more{
+    font-size: 16px;
+}
+.btn-block{
+    background: #f99e99;
+}
+.btn-block:hover{
+    background: #fa8c86;
+}
+.fa-shopping-cart{
+    color:white;
+}
+.jumbotron{
+    background: #feeee6;
+}
+.card-header{
+    background: #feeee6;
+}
+.card{
+    cursor: pointer;
+}
+.product-view:hover{
+    text-decoration: none;
+    color: #f99e99;
+}
