@@ -7,9 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SW Shop</title>
     <link rel="shortcut icon" type="image/png" href="{{asset('/images/favicon.png')}}"/>
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    <link href="{{asset('css/all.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+    @yield('link')
+
+
+
+
+    <!--
     <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link rel="stylesheet" href="{{asset('css/font.css')}}">
@@ -17,35 +26,33 @@
     <link rel="stylesheet" href="{{asset('css/blogcarousel.css')}}">
     <link rel="stylesheet" href="{{asset('css/section1.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('css/product.css')}}">
     <link rel="stylesheet" href="{{asset('css/blog.css')}}">
     <link rel="stylesheet" href="{{asset('css/checkout.css')}}">
+    <link rel="stylesheet" href="{{asset('css/pagination.css')}}">
+    <link rel="stylesheet" href="{{asset('css/login.css')}}">
+    <link rel="stylesheet" href="{{asset('css/signout.css')}}">
+    <link rel="stylesheet" href="{{asset('css/contact.css')}}">
+-->
 </head>
 
 <body>
-
+<div>
+</div>
 <div id="myOverlay" class="overlay">
     <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
     <div class="overlay-content">
-        <form action="{{route('trangchu')}}">
-            <input type="text" placeholder="Tìm Kiếm...." name="search">
-            <a href="search_re.html"><i class="fa fa-search" style="color: white;"></i></a>
+        <form action="{{route('timkiem')}}" method="get">
+            <input type="text" placeholder="Tìm Kiếm...." name="key">
+            <button type="submit"><i class="fa fa-search" style="color: white;"></i></button>
         </form>
     </div>
 </div>
 <div id="container-floating">
-    <div class="nd5 nds">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        </ul>
-    </div>
-    <div class="nd4 nds">
-        <a id="demo01" href="contact.html"><img class="edit" src="{{asset('/images/online-support-24.png')}}"></a>
-    </div>
+
     <button class="nd3 nds openBtn" onclick="openSearch()"> <img class="edit"
                                                                  src="{{asset('/images/search-12-24.png')}}"></button>
     <div class="nd1 nds">
-        <a href="{{route('cart')}}"> <img class="edit" src="{{asset('/images/cart-73-24.png')}}"></a>
+        <a href="{{route('dathang')}}"> <img class="edit" src="{{asset('/images/cart-73-24.png')}}"></a>
     </div>
 
     <div id="floating-button" onclick="topFunction()">
@@ -59,39 +66,37 @@
         <a href="{{route('trangchu')}}" class="navbar-brand d-flex justify-content-center">SW Shop</a>
 
         <ul class="clearfix d-flex justify-content-center">
-            <li><b class="outside"><a class="active" href="{{URL::asset('trangchu')}}">Trang Chủ</a></b>
-
+            <li><b class="outside"><a  href="{{URL::asset('trangchu')}}">Trang Chủ</a></b>
+            </li>
             <li><b class="outside">Sản Phẩm</b>
                 <ul>
-                    <li><a href="#" class="subhead">Áo</a>
+                    <li style="margin-left: 150px"><a href="{{route('Products',1)}}" class="subhead">Áo</a>
                         <ul>
                             @foreach($ao as $a)
                             <li><a href="{{route('loaisanpham',$a->id)}}" class="inside">{{$a->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="#" class="subhead">Quần</a>
+                    <li><a href="{{route('Products',2)}}" class="subhead">Quần</a>
                         <ul>
                             @foreach($quan as $q)
                                 <li><a href="{{route('loaisanpham',$q->id)}}" class="inside">{{$q->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="#" class="subhead">Giày & Dép</a>
+                    <li><a href="{{route('Products',3)}}" class="subhead">Giày & Dép</a>
                         <ul>
                             @foreach($giaydep as $gd)
                                 <li><a href="{{route('loaisanpham',$gd->id)}}" class="inside">{{$gd->name}}</a></li>
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="#" class="subhead">Phụ kiện</a>
+                    <li><a href="{{route('Products',4)}}" class="subhead">Phụ kiện</a>
                         <ul>
                             @foreach($phukien as $p)
                                 <li><a href="{{route('loaisanpham',$p->id)}}" class="inside">{{$p->name}}</a></li>
                             @endforeach
                         </ul>
-                    </li>
-                    <li><a href="#" class="subhead">Sales</a>
                     </li>
                 </ul>
             </li>
@@ -104,14 +109,12 @@
             </li>
 
 
-            <li><b class="outside"><a href="{{route('blog')}}">Blog</a></b>
-            </li>
-            <li><b class="outside"><a href="">Liên Hệ</a></b>
+
+            <li><b class="outside"><a href="{{route('contact')}}">Liên Hệ</a></b>
             </li>
 
         </ul>
-        </li>
-        </ul>
+
 
     </div>
 </div>
@@ -176,6 +179,8 @@
 <script src="{{URL::asset('js/multislider.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+@yield('script')
+<!--
 <script>
     $('#mixedSlider').multislider({
         duration: 750,
@@ -330,5 +335,6 @@
         });
     }
 </script>
+-->
 </body>
 </html>

@@ -141,7 +141,6 @@
             animateDuration = settings.duration;
 
             if (settings.hoverPause){pauseHover();}
-            // autoSlide is being depricated | Feb 2 2017
             if (settings.continuous !== true && settings.interval !== 0 && settings.interval !== false && settings.autoSlide !== false){autoSlide();}
             if (settings.pauseAbove !== null && typeof settings.pauseAbove === 'number'){ pauseAbove(); }
             if (settings.pauseBelow !== null && typeof settings.pauseBelow === 'number'){ pauseBelow(); }

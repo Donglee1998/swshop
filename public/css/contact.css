@@ -1,0 +1,77 @@
+.contact-info h3,.contact-form h3{
+	font-size: 16px;
+	margin-bottom: 20px;
+	padding-bottom: 8px;
+	text-transform: uppercase;
+	font-weight:500;
+}
+.contact-info ul li{
+	border-bottom: 1px solid #e8e8e9;
+	float: left;
+	font-size: 13px;
+	line-height: 40px;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+.contact-info ul li i{
+	font-size: 16px;
+	margin-right: 5px;
+	width: 20px;
+}
+.contact-info ul li span{
+	font-weight:700;
+}
+.contact-info ul li a{
+	color:#444;
+	text-decoration:none;
+	transition:.3s;
+}
+.contact-info ul li a:hover{
+	color: #ff9999;
+}
+.contact-form h3 i {
+  padding-right: 8px;
+}
+.contact-form .single-form-3 form input,.contact-form .single-form-3 form textarea {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 1px solid #eceff8;
+  font-size: 14px;
+  margin-bottom: 16px;
+  padding: 12px 10px;
+  width: 100%;
+  color: #333333;
+}
+.contact-form .single-form-3 form input[type="submit"] {
+  background: #ff9999 none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 0;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  height: 40px;
+  margin-top: 16px;
+  padding: 0 15px;
+  text-transform: uppercase;
+  transition: all 0.3s ease 0s;
+  width: 140px;
+}
+.contact-form .single-form-3 form input[type="submit"]:hover {
+  background: #ff8686 none repeat scroll 0 0;
+}
+ .contact-info {
+  overflow: hidden;
+}
+.map-responsive{
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+}
+.map-responsive iframe{
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+}

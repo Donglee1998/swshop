@@ -1,6 +1,13 @@
 @extends('master')
+@section('link')
+    <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
+    <link rel="stylesheet" href="{{asset('css/contact.css')}}">
+    <link rel="stylesheet" href="{{asset('css/font.css')}}">
+    <link rel="stylesheet" href="{{asset('css/footer.css')}}">
+    <link rel="stylesheet" href="{{asset('css/section1.css')}}">
+@endsection
 @section('Noidung')
-<section class="jumbotron text-center h-25"style="background-image: url('../images/Rectangle 142.png')">
+<section class="jumbotron text-center h-25"style="background-image: url('{{asset('images/Rectangle 142.png')}}')">
     <div class="container">
         <h1 style="color: white;"><b>Liên Hệ</b>
         </h1>
@@ -50,27 +57,69 @@
                             <li>
                                 <i class="fa fa-map-marker"></i>
                                 <span>Địa Chỉ: </span>
-                                Số 3, Ngõ 90 Khuất Duy Tiến, Thanh Xuân, Hà Nội
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope"></i>
-                                <span>Hotline: </span>
-                                0396995982
+                                Số 8 Chiến Lược, Phường Bình Trị Đông, Quận Bình Tân, TPHCM
                             </li>
                             <li>
                                 <i class="fa fa-mobile"></i>
+                                <span>Hotline: </span>
+                                0964662xxx
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope"></i>
                                 <span>Email: </span>
-                                <a href="#">vanduc2314@gmail.com</a>
+                                <a href="#">donglee123321@gmail.com</a>
                             </li>
                         </ul>
                     </div>
                     <div class="map-responsive">
-                        <iframe
-                            src="https://maps.google.com/maps?width=565&amp;height=430&amp;hl=en&amp;q=s%E1%BB%91%203%2Cng%C3%B5%2090%2C%20khu%E1%BA%A5t%20duy%20ti%E1%BA%BFn+(Title)&amp;ie=UTF8&amp;t=&amp;z=19&amp;iwloc=B&amp;output=embed"
-                            width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6682721711836!2d106.6197218146224!3d10.760028992332654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752c2f42dc818b%3A0x5d89e0b7ae60c16a!2zOCBDaGnhur9uIEzGsOG7o2MsIELDrG5oIFRy4buLIMSQw7RuZywgQsOsbmggVMOibiwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1615279394700!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div><br />
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+        <script>
+            $(document).ready(function () {
+                "use strict";
+                $('.menu > ul > li:has(ul)').addClass('menu-dropdown-icon');
+                $('.menu > ul > li > ul:not(:has(ul))').addClass('normal-sub');
+                $(".menu > ul").before("<a href=\"#\" class=\"menu-mobile\">&nbsp;</a>");
+                $(".menu > ul > li").hover(function (e) {
+                    if ($(window).width() > 943) {
+                        $(this).children("ul").stop(true, false).fadeToggle(150);
+                        e.preventDefault();
+                    }
+                });
+                $(".menu > ul > li").click(function () {
+                    if ($(window).width() <= 943) {
+                        $(this).children("ul").fadeToggle(150);
+                    }
+                });
+                $(".menu-mobile").click(function (e) {
+                    $(".menu > ul").toggleClass('show-on-mobile');
+                    e.preventDefault();
+                });
+            });
+            $(window).resize(function () {
+                $(".menu > ul > li").children("ul").hide();
+                $(".menu > ul").removeClass('show-on-mobile');
+            });
+        </script>
+        <script>
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+        <script>
+            function openSearch() {
+                document.getElementById("myOverlay").style.display = "block";
+            }
+
+            function closeSearch() {
+                document.getElementById("myOverlay").style.display = "none";
+            }
+        </script>
 @endsection

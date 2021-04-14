@@ -14,28 +14,83 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => '/'],function (){
+
+    Route::get('trangchu','PageController@getIndex')->name('trangchu');
+
+    Route::get('add-to-cart/{id}','PageController@getAddtoCart')->name("themgiohang");
+
+    Route::get('del-cart/{id}','PageController@getDelItemCart')->name("xoagiohang");
+
+    Route::get('dat-hang','PageController@getCart')->name('dathang');
+
+    Route::get('thanhtoan','PageController@getCheckOut')->name('thanhtoan');
+
+    Route::post('thanhtoan','PageController@postCheckOut')->name('thanhtoan');
+
+    Route::get('search','PageController@getSearch')->name('timkiem');
+
+    Route::post('search','PageController@getSearch')->name('timkiem');
+
+    Route::get('product-detail/{id}',['as'=>'chitietsanpham','uses'=>'PageController@getProductDetail']);
+
+    Route::get('contact','PageController@getContact')->name('contact');
+
+    Route::get('product/{type}',['as'=>'loaisanpham','uses'=>'PageController@getType']);
+
+    Route::get('products/{type}',['as'=>'Products','uses'=>'PageController@getShirt']);
+
+    Route::get('blog','PageController@getBlog')->name('blog');
+
 });
 
-Route::get('trangchu','PageController@getIndex')->name('trangchu');
+
+Route::group(['prefix' => 'admin'],function (){
+
+    Route::get('/','Admincontroller@getAdmin')->name('AdminHome')->middleware('CheckLogin');
+
+    Route::get('login','Admincontroller@getLogin')->name('Login')->middleware('CheckLogout');
+
+    Route::post('login','Admincontroller@postLogin')->name('Login');
+
+    Route::get('logout','Admincontroller@getLogout')->name('Logout');
+
+    Route::get('add_images','Admincontroller@getAddimage')->name('AddImage');
+
+    Route::post('add_images','Admincontroller@postAddimage')->name('AddImage');
+
+    Route::group(['prefix' => 'product'],function (){
+
+        Route::get('/','Admincontroller@products')->name('Product');
+
+        Route::get('adds','Admincontroller@getAdd')->name('Add');
+
+        Route::post('adds','Admincontroller@postAdd')->name('Add');
+
+        Route::get('edits/{id}','Admincontroller@getEdit')->name('Edit');
+
+        Route::post('edits/{id}','Admincontroller@postEdit')->name('Edit');
+
+        Route::get('deletes/{id}','Admincontroller@getDelete')->name('Delete');
+    });
+
+    Route::group(['prefix'=>'invoice'], function (){
+
+        Route::get('uncensored_invoice','Admincontroller@getUncensoredInvoice')->name('Uncensored');
+
+        Route::get('censored_invoice','Admincontroller@getCensoredInvoice')->name('Censored');
+
+        Route::get('detail_invoice/{id}','Admincontroller@getDetailInvoice')->name('Detail');
+
+        Route::get('approval/{id}','Admincontroller@getApprovalInvoice')->name('Approval');
+
+        Route::get('delete_invoice/{id}','Admincontroller@getDeleteInvoice')->name('DeleteInvoice');
 
 
+    });
 
-Route::get('cart',['as'=>'cart','uses'=>'PageController@cart']);
-
-Route::get('product-detail/{id}',['as'=>'chitietsanpham','uses'=>'PageController@getchitietsp']);
-
-Route::get('contact',function (){
-    return view('contact');
 });
 
-Route::get('product/{type}',['as'=>'loaisanpham','uses'=>'PageController@getloaisp']);
-
-
-Route::get('blog',function (){
-    return view('blog');
-})->name('blog');
 
 Route::get('database',function (){
     Schema::create('customer',function ($tb){
@@ -130,7 +185,7 @@ Route::get('insert',function (){
         ['name'=>'T-SHIRT HAPPY BUTTON','id_type'=>'1','description'=>'Áo T-SHIRT HAPPY BUTTON rất đẹp','unit_price'=>'229000','promotion_price'=>'0','image'=>'ao2.jpg','unit'=>'zara','new'=>'1'],
         ['name'=>'T-SHIRT UNI','id_type'=>'1','description'=>'Áo T-SHIRT UNI rất đẹp','unit_price'=>'220000','promotion_price'=>'0','image'=>'ao3.jpg','unit'=>'Swshop','new'=>'1'],
         ['name'=>'SHIRT HAPPY BUTTON','id_type'=>'2','description'=>'Áo SHIRT HAPPY BUTTON rất đẹp','unit_price'=>'300000','promotion_price'=>'250000','image'=>'ao4.jpg','unit'=>'Swshop','new'=>'0'],
-        ['name'=>'SHIRT FLANNEL SUPPER BRO','id_type'=>'2','description'=>'Áo SHIRT FLANNEL SUPPER BRO rất đẹp','unit_price'=>'350000','promotion_price'=>'0','image'=>'ao5.jpg','unit'=>'zara','new'=>'1'],
+        ['name'=>'SHIRT FLANNEL SUPPER BRO','id_type'=> '2','description'=>'Áo SHIRT FLANNEL SUPPER BRO rất đẹp','unit_price'=>'350000','promotion_price'=>'0','image'=>'ao5.jpg','unit'=>'zara','new'=>'1'],
         ['name'=>'POLO LC','id_type'=>'3','description'=>'Áo POLO LC rất đẹp','unit_price'=>'320000','promotion_price'=>'0','image'=>'ao6.jpg','unit'=>'swshop','new'=>'0'],
         ['name'=>'POLO ZR','id_type'=>'3','description'=>'Áo POLO ZR rất đẹp','unit_price'=>'320000','promotion_price'=>'0','image'=>'ao7.jpg','unit'=>'zara','new'=>'1'],
         ['name'=>'SWEATERSHIRT M.L.B','id_type'=>'4','description'=>'Áo SWEATERSHIRT M.L.B rất đẹp','unit_price'=>'280000','promotion_price'=>'140000','image'=>'ao8.jpg','unit'=>'MLB','new'=>'0'],
